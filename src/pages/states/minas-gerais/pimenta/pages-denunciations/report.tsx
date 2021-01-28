@@ -45,7 +45,7 @@ function Report() {
 
       console.log(filesData);
       axios({
-        url: process.env.REACT_APP_API_URL + '/denunciations',
+        url: process.env.REACT_APP_API_URL + 'denunciations',
         method: 'POST',
         headers: { 'Content-Type': 'multipart/form-data' },
         data: formData
