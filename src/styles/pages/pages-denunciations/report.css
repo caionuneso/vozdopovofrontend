@@ -1,0 +1,147 @@
+#page-report .page-header{
+    max-height: 80px;
+    height: 100%;
+    
+    display: flex;
+    align-items: baseline;
+
+    font-size: 20px;
+}
+
+#page-report .page-header img{
+    display: flex;
+    align-items: baseline;
+
+    height: 40px;
+
+    margin-right: 5px;
+    margin-top: 4vh;
+    margin-left: 3vh;
+}
+
+#page-report {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
+}
+
+#page-report main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    border: 2px;
+    
+    background-color: #fff;
+
+    max-width: 75%;
+
+    margin: 2% auto;
+
+    border-radius: 0.7rem;
+
+    width: 90%;
+    height: 80vh;
+    
+}
+
+#page-report main #formReport a {
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+#page-report main #formReport {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 95%;
+    height: 95%;
+
+}
+
+#page-report #formReport Textarea{
+    margin-top: 20px;
+    width: 100%;
+    height: 50%;
+
+    border-radius: 0.7rem;
+}
+
+#page-report #formReport #files {
+    color: rgb(104, 104, 104);
+
+    width: 100%;
+
+    margin-top: 2%;
+}
+
+#page-report h1 {
+    color: black;
+}
+
+#page-report p {
+    color: rgb(104, 104, 104);
+}
+
+#page-report #buttonReport {
+    text-decoration: none;
+    width: 40%;
+    height: 10%;
+    background: #ffd666;
+    border-radius: 20px;
+
+    margin: auto 0;
+
+    border: none;
+}
+
+@media(max-width: 910px) {
+    #page-report {
+        display: flex;
+        align-items: center;
+    }
+
+    #page-report main {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    
+        border: 2px;
+        
+        background-color: #fff;
+    
+        max-width: 100%;
+    
+        margin: 2% auto;
+    
+        border-radius: 0.7rem;
+    
+        width: 95%;
+        height: 95vh;
+    }
+
+    #page-report .page-header{
+        display: none;
+    }
+
+    #page-report #formReport #files {
+        color: rgb(104, 104, 104);
+        font-size: medium;
+        width: 100%;
+    
+        margin-top: 2%;
+    }
+
+    #page-report #formReport Textarea{
+        height: 40%;
+    }
+
+    #page-report p {
+        font-size: 13px;
+        text-align: justify;
+    }
+}
