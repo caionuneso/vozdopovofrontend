@@ -41,7 +41,7 @@ function Report() {
       for(var i = 0; i < filesData.length; i++){
         formData.append('file', filesData[i])
       }
-      formData.append('city_id', "74e623b7-c7f4-4470-883c-509f575dd785")
+      formData.append('city_id', "ba635d07-fe28-4789-92a7-5bfcc1c3759a")
 
       console.log(filesData);
       axios({
