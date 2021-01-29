@@ -45,7 +45,19 @@ function Report() {
       formData.append('city_id', "ba635d07-fe28-4789-92a7-5bfcc1c3759a")
 
       console.log(filesData);
-      axios({
+      api.post(process.env.REACT_APP_API_URL + 'denunciations', formData,{headers: {'Content-Type': 'Multipart/form-data'}})
+      .then(response => {
+        console.log(response.data)
+        swal({
+          title: "Bom trabalho!",
+          text: "Você enviou sua denúncia!",
+          icon: "success",
+        });
+      })
+      .catch(error =>{
+        console.error('Erro capturado: ' + error)
+      })
+      /* axios({
         url: process.env.REACT_APP_API_URL + 'denunciations',
         method: 'POST',
         headers: { 'Content-Type': 'multipart/form-data' },
@@ -61,7 +73,7 @@ function Report() {
       })
       .catch(error =>{
         console.error('Erro capturado: ' + error)
-      })
+      }) */
   }
 
 
