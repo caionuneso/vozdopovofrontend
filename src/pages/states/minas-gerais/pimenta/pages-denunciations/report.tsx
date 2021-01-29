@@ -54,8 +54,8 @@ function Report() {
       .then(response =>{
         console.log(response.data)
         swal({
-          title: "Good job!",
-          text: "You clicked the button!",
+          title: "Bom trabalho!",
+          text: "Você enviou sua denúncia!",
           icon: "success",
         });
       })
