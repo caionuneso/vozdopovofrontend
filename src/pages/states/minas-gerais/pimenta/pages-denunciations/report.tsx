@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
 import api from "../../../../../services/api";
 
+import swal from 'sweetalert';
 
 import "../../../../../styles/pages/pages-denunciations/report.css";
 import icon from "../../../../../images/icon.svg";
@@ -52,6 +53,11 @@ function Report() {
       })
       .then(response =>{
         console.log(response.data)
+        swal({
+          title: "Good job!",
+          text: "You clicked the button!",
+          icon: "success",
+        });
       })
       .catch(error =>{
         console.error('Erro capturado: ' + error)
