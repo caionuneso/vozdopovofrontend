@@ -1,5 +1,4 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import axios from 'axios';
 import FormData from 'form-data'
 import { Link } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
@@ -17,7 +16,6 @@ function Report() {
   })
 
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) =>{
-    // console.log(event.target.name, event.target.value)
     const { name, value } = event.target;
 
     setFormData({
@@ -31,18 +29,18 @@ function Report() {
   } 
 
   async function handleSubmit(event: FormEvent){
-      event.preventDefault()
-      console.log('Arquivo selecionado')
-      const { description } = getFormData
+      event.preventDefault();
+      console.log('Arquivo selecionado');
+      const { description } = getFormData;
 
-      let formData = new FormData()
+      let formData = new FormData();
       const filesData:FileList = files as unknown as FileList;
 
-      formData.append('description', description)
+      formData.append('description', description);
       for(var i = 0; i < filesData.length; i++){
-        formData.append('file', filesData[i])
+        formData.append('file', filesData[i]);
       }
-      formData.append('city_id', "ba635d07-fe28-4789-92a7-5bfcc1c3759a")
+      formData.append('city_id', "ba635d07-fe28-4789-92a7-5bfcc1c3759a");
 
       console.log(filesData);
       api.post(process.env.REACT_APP_API_URL + 'denunciations', formData,{headers: {'Content-Type': 'Multipart/form-data'}})
@@ -57,23 +55,6 @@ function Report() {
       .catch(error =>{
         console.error('Erro capturado: ' + error)
       })
-      /* axios({
-        url: process.env.REACT_APP_API_URL + 'denunciations',
-        method: 'POST',
-        headers: { 'Content-Type': 'multipart/form-data' },
-        data: formData
-      })
-      .then(response =>{
-        console.log(response.data)
-        swal({
-          title: "Bom trabalho!",
-          text: "Você enviou sua denúncia!",
-          icon: "success",
-        });
-      })
-      .catch(error =>{
-        console.error('Erro capturado: ' + error)
-      }) */
   }
 
 
