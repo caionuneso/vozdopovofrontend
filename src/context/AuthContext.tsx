@@ -1,18 +1,25 @@
-import React, { createContext } from "react";
+import React, { createContext, useCallback } from "react";
 
 interface AuthContextData {
   UserName: string;
   city_id: string;
+  signIn(): void;
 }
 
-const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+export const AuthContext = createContext<AuthContextData>(
+  {} as AuthContextData
+);
 
-/* export const AuthProvider: React.FC = ({ children }) => {
+export const AuthProvider: React.FC = ({ children }) => {
+  const signIn = useCallback(() => {
+    console.log('signIn');
+  }, []);
+
   return (
-   <AuthContext.Provider value= {{UserName: "leleo", city_id: "123"}}>
-     {children};
+   <AuthContext.Provider value= {{signIn, UserName: "leleo", city_id: "123"}}>
+     {children}
    </AuthContext.Provider>
   );
-}; */
+};
 
 export default AuthContext;

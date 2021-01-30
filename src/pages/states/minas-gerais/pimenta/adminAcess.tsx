@@ -8,7 +8,7 @@ import "../../../../styles/pages/adminAcess.css";
 import icon from "../../../../images/icon.svg";
 import { FiArrowLeft } from "react-icons/fi";
 
-import AuthContext from "../../../../context/AuthContext";
+import { AuthContext } from "../../../../context/AuthContext";
 
 function AdminAcess() {
   const [getFormData, setFormData] = useState({
@@ -16,11 +16,10 @@ function AdminAcess() {
     Password: ''
   })
 
-  const auth = useContext(AuthContext);
-  console.log(auth);
+  const { signIn } = useContext(AuthContext);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value} = event.target;
+    const { name, value } = event.target;
 
     setFormData({
       ...getFormData,
@@ -38,6 +37,8 @@ function AdminAcess() {
     formData.append('city_id', "ba635d07-fe28-4789-92a7-5bfcc1c3759a");
     
     console.log(formData);
+
+   //3 - login pelo contexto: 5:40
 
     api.post(process.env.REACT_APP_API_URL + 'sessions', formData)
     .then(response => {

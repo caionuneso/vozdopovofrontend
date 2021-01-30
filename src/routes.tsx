@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import AuthContex from "../src/context/AuthContext";
+import { AuthProvider } from "../src/context/AuthContext";
 
 import adminAcess from "./pages/states/minas-gerais/pimenta/adminAcess";
 import denunciations from "./pages/states/minas-gerais/pimenta/denunciations";
@@ -12,16 +12,18 @@ function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/mg/pimenta" exact component={Landing} />
-        <AuthContex.Provider value={{ UserName:'leleo', city_id: '123' }}>
-          <Route path="/mg/pimenta/adminAcess" component={adminAcess} />
-        </AuthContex.Provider>
-        <Route path="/mg/pimenta/denunciations" component={denunciations} />
-        <Route path="/mg/pimenta/report" component={report} />
-        <Route
-          path="/mg/pimenta/generateProtocol"
-          component={generateProtocol}
-        />
+        <>
+          <Route path="/mg/pimenta" exact component={Landing} />
+          <AuthProvider>
+            <Route path="/mg/pimenta/adminAcess" component={adminAcess} />
+          </AuthProvider>
+          <Route path="/mg/pimenta/denunciations" component={denunciations} />
+          <Route path="/mg/pimenta/report" component={report} />
+          <Route
+            path="/mg/pimenta/generateProtocol"
+            component={generateProtocol}
+          />
+        </>
       </Switch>
     </BrowserRouter>
   );
